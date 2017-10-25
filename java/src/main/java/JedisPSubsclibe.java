@@ -6,7 +6,7 @@ import redis.clients.jedis.JedisShardInfo;
  * Jedisからのパターンsubscribeテスト
  * Created by user on 2016/08/09.
  */
-public class JedisPSubsclibe {
+public class JedisPSubsclibe extends JedisBase {
 
     public static void main(String[] args) throws InterruptedException {
         new JedisPSubsclibe().startSubscriber();
@@ -19,9 +19,9 @@ public class JedisPSubsclibe {
         final JedisPubSub jedisPubSub = init();
         try {
             System.out.println("connecting");
-            JedisShardInfo settings = new JedisShardInfo(【HOSTNAME】, 【PORT NUMBER】);
+            JedisShardInfo settings = new JedisShardInfo(HOSTNAME, PORT_NUMBER);
             //Azure Redis Cacheでいうプライマリアクセスキー
-            settings.setPassword(【AUTH】);
+            settings.setPassword(AUTH);
             Jedis jedis = new Jedis(settings);
 
             System.out.println("subscribe : start");

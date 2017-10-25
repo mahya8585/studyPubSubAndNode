@@ -4,7 +4,7 @@ import redis.clients.jedis.JedisShardInfo;
 /**
  * Created by user on 2016/08/09.
  */
-public class JedisPublish {
+public class JedisPublish extends JedisBase {
 
     public static void main(String... args) throws InterruptedException {
         publish("test", "from jedis!!!");
@@ -13,9 +13,9 @@ public class JedisPublish {
     private static void publish(String channel, String message) throws InterruptedException {
         System.out.println("publish start.");
 
-        JedisShardInfo settings = new JedisShardInfo(ÅyHOSTNAMEÅz, ÅyPORT NUMBERÅz);
-        //Azure Redis CacheÇ≈Ç¢Ç§ÉvÉâÉCÉ}ÉäÉAÉNÉZÉXÉLÅ[
-        settings.setPassword(ÅyAUTHÅz);
+        JedisShardInfo settings = new JedisShardInfo(HOSTNAME, PORT_NUMBER);
+        //Azure Redis Cache„Åß„ÅÑ„ÅÜ„Éó„É©„Ç§„Éû„É™„Ç¢„ÇØ„Çª„Çπ„Ç≠„Éº
+        settings.setPassword(AUTH);
         Jedis jedis = new Jedis(settings);
         jedis.publish(channel, message);
         jedis.quit();
