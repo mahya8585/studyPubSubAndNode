@@ -1,3 +1,5 @@
+package pubsub;
+
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPubSub;
 import redis.clients.jedis.JedisShardInfo;
@@ -19,10 +21,10 @@ public class JedisSubsclibe extends JedisBase {
         final JedisPubSub jedisPubSub = init();
         try {
             System.out.println("connecting");
-            JedisShardInfo settings = new JedisShardInfo(HOSTNAME, PORT_NUMBER);
-            //Azure Redis Cacheでいうプライマリアクセスキー
-            settings.setPassword(AUTH);
-            Jedis jedis = new Jedis(settings);
+                JedisShardInfo settings = new JedisShardInfo(HOSTNAME, PORT_NUMBER);
+                //Azure Redis Cacheでいうプライマリアクセスキー
+                settings.setPassword(AUTH);
+                Jedis jedis = new Jedis(settings);
 
             System.out.println("subscribe : start");
             jedis.subscribe(jedisPubSub, "test");

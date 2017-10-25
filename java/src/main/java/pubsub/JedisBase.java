@@ -1,3 +1,5 @@
+package pubsub;
+
 public class JedisBase {
 
     static final String HOSTNAME = "";
